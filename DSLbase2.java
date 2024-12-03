@@ -84,10 +84,7 @@ public class DSLbase2 {
         }
     public void clicarBotaoVisualizarTarefaEnviada (String buton) {
     	WebElement visualizarTarefaButton = driver.findElement(By.xpath(buton));
-        visualizarTarefaButton.click();
-    	
-   
-        
+        visualizarTarefaButton.click();        
     }
 }
 
