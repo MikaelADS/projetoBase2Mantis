@@ -82,6 +82,13 @@ public class DSLbase2 {
     	WebElement criarTarefaBotao = driver.findElement(By.xpath(buton));
     	criarTarefaBotao.click();
         }
+    public void clicarBotaoVisualizarTarefaEnviada (String buton) {
+    	WebElement visualizarTarefaButton = driver.findElement(By.xpath(buton));
+        visualizarTarefaButton.click();
+    	
+   
+        
+    }
 }
 
 	

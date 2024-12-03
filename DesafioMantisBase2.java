@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -58,22 +57,22 @@ public class DesafioMantisBase2 {
 		dsl.selecionarOpcaoCampoVisibilidade("//label[span[text()='privado']]");
 		dsl.selecionarOpcaoCampoContinuarRelatando("//label[span[text()='selecione para criar mais tarefas']]");
 		dsl.clicarBotaoCriarNovaTarefa("//input[@value='Criar Nova Tarefa']");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Remove eventos de redirecionamento configurados na página
-		js.executeScript("window.onbeforeunload = function() {};");
+		//js.executeScript("window.onbeforeunload = function() {};");
 		// Desabilita temporariamente redirecionamentos automáticos
-		js.executeScript("setTimeout(function() { window.stop(); }, 1000);");
+		//js.executeScript("setTimeout(function() { window.stop(); }, 1000);");
 		// Valide o texto do elemento
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.bold.bigger-110")));
         String expectedText = "Operação realizada com sucesso.";
-        String actualText = element.getText();
-        
+        String actualText = element.getText();        
         if (expectedText.equals(actualText)) {
             System.out.println("Texto validado com sucesso!");
         } else {
             System.out.println("Texto não corresponde! Esperado: " + expectedText + ", Obtido: " + actualText);
         }
-    
+        dsl.clicarBotaoVisualizarTarefaEnviada("//a[contains(text(),'Visualizar Tarefa Enviada')]");
+        
 	}
 }
